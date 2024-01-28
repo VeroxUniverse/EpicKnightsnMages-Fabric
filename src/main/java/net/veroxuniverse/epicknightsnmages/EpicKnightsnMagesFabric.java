@@ -2,6 +2,8 @@ package net.veroxuniverse.epicknightsnmages;
 
 import mod.azure.azurelib.AzureLib;
 import net.fabricmc.api.ModInitializer;
+import net.runes.tinyconfig.ConfigManager;
+import net.spell_engine.api.item.ItemConfig;
 import net.veroxuniverse.epicknightsnmages.registry.BlocksRegistry;
 import net.veroxuniverse.epicknightsnmages.registry.ItemGroupsRegistry;
 import net.veroxuniverse.epicknightsnmages.registry.ItemsRegistry;
@@ -23,10 +25,12 @@ public class EpicKnightsnMagesFabric implements ModInitializer {
 
 		KNMWorldGeneration.generateModWorldGeneration();
 
+
 		ItemGroupsRegistry.registerItemGroups();
 		ItemsRegistry.registerModItems();
 		BlocksRegistry.registerModBlocks();
 
 		LOGGER.info("Epic Knights'n'Mages loaded!");
 	}
+
 }

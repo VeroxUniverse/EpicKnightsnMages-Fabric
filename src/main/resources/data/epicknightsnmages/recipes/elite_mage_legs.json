@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "epicknightsnmages:magical_ingot"
+  },
+  "base": {
+    "item": "minecraft:iron_leggings"
+  },
+  "result": {
+    "item": "epicknightsnmages:elite_mage_leggings"
+  },
+  "template": {
+    "item": "epicknightsnmages:citrin_gem"
+  }
+}

@@ -1,5 +1,6 @@
 package net.veroxuniverse.epicknightsnmages.item.armor;
 
+import com.google.common.collect.Multimap;
 import mod.azure.azurelib.animatable.GeoItem;
 import mod.azure.azurelib.core.animatable.instance.AnimatableInstanceCache;
 import mod.azure.azurelib.core.animation.AnimatableManager;
@@ -7,8 +8,11 @@ import mod.azure.azurelib.core.animation.AnimationController;
 import mod.azure.azurelib.core.animation.AnimationState;
 import mod.azure.azurelib.core.object.PlayState;
 import mod.azure.azurelib.util.AzureLibUtil;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
+import net.spell_engine.api.item.ConfigurableAttributes;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -47,5 +51,6 @@ public class KNMArmor extends ArmorItem implements GeoItem {
     public AnimatableInstanceCache getAnimatableInstanceCache() {
         return cache;
     }
+
 }
 

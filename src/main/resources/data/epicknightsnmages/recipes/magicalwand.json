@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "S": {
+      "item": "epicknightsnmages:scarlet_gem"
+    },
+    "M": {
+      "item": "epicknightsnmages:magical_ingot"
+    },
+    "B": {
+      "item": "minecraft:stick"
+    },
+    "C": {
+      "item": "epicknightsnmages:citrin_gem"
+    }
+  },
+  "pattern": [
+    "SMS",
+    "CBC",
+    "SMS"
+  ],
+  "result": {
+    "item": "epicknightsnmages:elite_wand"
+  }
+}

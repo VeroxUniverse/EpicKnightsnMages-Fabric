@@ -1,13 +1,21 @@
 package net.veroxuniverse.epicknightsnmages.registry;
 
+import net.minecraft.item.Items;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
 
 import java.util.function.Supplier;
 
 public enum ItemMaterialsRegistry implements ToolMaterial {
-    SCARLET(4, 650, 12.0f, 5.0f, 25,
-            () -> Ingredient.ofItems(ItemsRegistry.SCARLET_GEM));
+
+    MAGICAL(3, 1812, 12.0f, 0.0f, 20,
+            () -> Ingredient.ofItems(ItemsRegistry.MAGICAL_INGOT)),
+    NOBLE(3, 1812, 12.0f, 0.0f, 12,
+            () -> Ingredient.ofItems(ItemsRegistry.MAGICAL_INGOT)),
+    SPELLCASTING(4, 2031, 12.0f, 0.0f, 12,
+            () -> Ingredient.ofItems(Items.NETHERITE_INGOT)),
+    DARK(4, 2031, 12.0f, 0.0f, 25,
+            () -> Ingredient.ofItems(Items.NETHERITE_INGOT));
 
     private final int miningLevel;
     private final int itemDurability;

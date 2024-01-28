@@ -19,8 +19,30 @@ public class ItemGroupsRegistry {
                         entries.add(ItemsRegistry.SCARLET_GEM);
                         entries.add(ItemsRegistry.MOONLIGHT_GEM);
                         entries.add(ItemsRegistry.CITRIN_GEM);
+                        entries.add(ItemsRegistry.MAGICAL_INGOT);
+
+                        // Weapon Registry
+                        entries.add(ItemsRegistry.ELITE_WAND);
+                        entries.add(ItemsRegistry.ELITE_SPELL_BOOK);
+                        entries.add(ItemsRegistry.NOBLE_SWORD);
+                        entries.add(ItemsRegistry.DARK_SWORD);
 
                         // Armor Registry
+                        entries.add(ItemsRegistry.ELITE_MAGE_HELMET);
+                        entries.add(ItemsRegistry.ELITE_MAGE_CHESTPLATE);
+                        entries.add(ItemsRegistry.ELITE_MAGE_LEGGINGS);
+                        entries.add(ItemsRegistry.ELITE_MAGE_BOOTS);
+
+                        entries.add(ItemsRegistry.ARMORED_MAGE_HELMET);
+                        entries.add(ItemsRegistry.ARMORED_MAGE_CHESTPLATE);
+                        entries.add(ItemsRegistry.ARMORED_MAGE_LEGGINGS);
+                        entries.add(ItemsRegistry.ARMORED_MAGE_BOOTS);
+
+                        entries.add(ItemsRegistry.BLUE_KNIGHT_HELMET);
+                        entries.add(ItemsRegistry.BLUE_KNIGHT_CHESTPLATE);
+                        entries.add(ItemsRegistry.BLUE_KNIGHT_LEGGINGS);
+                        entries.add(ItemsRegistry.BLUE_KNIGHT_BOOTS);
+
                         entries.add(ItemsRegistry.DARK_KNIGHT_HELMET);
                         entries.add(ItemsRegistry.DARK_KNIGHT_CHESTPLATE);
                         entries.add(ItemsRegistry.DARK_KNIGHT_LEGGINGS);

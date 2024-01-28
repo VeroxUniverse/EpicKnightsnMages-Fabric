@@ -1,5 +1,9 @@
 package net.veroxuniverse.epicknightsnmages.registry;
 
+import com.google.common.collect.ImmutableMultimap;
+import com.google.common.collect.Multimap;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ArmorMaterials;
@@ -10,6 +14,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Lazy;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.Util;
+import net.spell_power.api.MagicSchool;
 import net.veroxuniverse.epicknightsnmages.EpicKnightsnMagesFabric;
 
 import java.util.EnumMap;
@@ -17,12 +22,33 @@ import java.util.function.Supplier;
 
 public enum ArmorMaterialsRegistry implements ArmorMaterial {
 
+    BLUE("blue", 25, Util.make(new EnumMap(ArmorItem.Type.class), map -> {
+        map.put(ArmorItem.Type.BOOTS, 2);
+        map.put(ArmorItem.Type.LEGGINGS, 4);
+        map.put(ArmorItem.Type.CHESTPLATE, 6);
+        map.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0f, 0.0f, () -> Ingredient.ofItems(ItemsRegistry.MAGICAL_INGOT)),
+
+    WIZARD("wizard", 225, Util.make(new EnumMap(ArmorItem.Type.class), map -> {
+        map.put(ArmorItem.Type.BOOTS, 2);
+        map.put(ArmorItem.Type.LEGGINGS, 4);
+        map.put(ArmorItem.Type.CHESTPLATE, 6);
+        map.put(ArmorItem.Type.HELMET, 2);
+    }), 12, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 0.0f, 0.0f, () -> Ingredient.ofItems(ItemsRegistry.MAGICAL_INGOT)),
+
+    BATTLEMAGE("battlemage", 45, Util.make(new EnumMap(ArmorItem.Type.class), map -> {
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 3);
+    }), 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.1f, () -> Ingredient.ofItems(Items.NETHERITE_INGOT)),
+
     DARK("dark", 45, Util.make(new EnumMap(ArmorItem.Type.class), map -> {
-        map.put(ArmorItem.Type.BOOTS, 5);
-        map.put(ArmorItem.Type.LEGGINGS, 8);
-        map.put(ArmorItem.Type.CHESTPLATE, 10);
-        map.put(ArmorItem.Type.HELMET, 5);
-    }), 30, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.15f, () -> Ingredient.ofItems(Items.NETHERITE_INGOT));
+        map.put(ArmorItem.Type.BOOTS, 3);
+        map.put(ArmorItem.Type.LEGGINGS, 6);
+        map.put(ArmorItem.Type.CHESTPLATE, 8);
+        map.put(ArmorItem.Type.HELMET, 3);
+    }), 20, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 3.0f, 0.1f, () -> Ingredient.ofItems(Items.NETHERITE_INGOT));
 
     public static final StringIdentifiable.Codec<ArmorMaterials> CODEC;
     private static final EnumMap<ArmorItem.Type, Integer> BASE_DURABILITY;
@@ -36,7 +62,7 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
     private final Lazy<Ingredient> repairIngredientSupplier;
 
     private ArmorMaterialsRegistry(String name, int durabilityMultiplier, EnumMap<ArmorItem.Type, Integer> protectionAmounts,
-                                  int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
+                                   int enchantability, SoundEvent equipSound, float toughness, float knockbackResistance, Supplier<Ingredient> repairIngredientSupplier) {
         this.name = name;
         this.durabilityMultiplier = durabilityMultiplier;
         this.protectionAmounts = protectionAmounts;
@@ -96,4 +122,5 @@ public enum ArmorMaterialsRegistry implements ArmorMaterial {
             map.put(ArmorItem.Type.HELMET, 11);
         });
     }
+
 }

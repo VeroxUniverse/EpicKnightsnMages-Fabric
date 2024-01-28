@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "epicknightsnmages:scarlet_ore",
+    "epicknightsnmages:deepslate_scarlet_ore",
+    "epicknightsnmages:citrin_ore",
+    "epicknightsnmages:deepslate_citrin_ore",
+    "epicknightsnmages:moonlight_ore",
+    "epicknightsnmages:deepslate_moonlight_ore"
+  ]
+}
