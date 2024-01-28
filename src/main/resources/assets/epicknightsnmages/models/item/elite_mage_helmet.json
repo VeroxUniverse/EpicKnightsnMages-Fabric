@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "epicknightsnmages:item/elite_mage_helmet"
+  }
+}

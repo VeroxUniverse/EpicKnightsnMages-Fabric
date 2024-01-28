@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "epicknightsnmages",
+	"version": "${version}",
+	"name": "Epic Knights'n'Mages Fabric",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"VeroxUniverse"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "LGPL-3.0",
+	"icon": "assets/epic-knightsnmages/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.veroxuniverse.epicknightsnmages.EpicKnightsnMagesFabric"
+		],
+		"client": [
+			"net.veroxuniverse.epicknightsnmages.EpicKnightsnMagesFabricClient"
+		],
+		"fabric-datagen": [
+			"net.veroxuniverse.epicknightsnmages.EpicKnightsnMagesFabricDataGenerator"
+		]
+	},
+	"mixins": [
+		"epicknightsnmages.mixins.json"
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*"
+	}
+}
