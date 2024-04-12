@@ -17,9 +17,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Util;
 import net.minecraft.world.World;
 import net.spell_engine.api.item.ConfigurableAttributes;
-import net.spell_engine.api.item.armor.Armor;
-import net.spell_power.api.MagicSchool;
-import net.spell_power.api.attributes.EntityAttributes_SpellPower;
+import net.spell_power.api.SpellPowerMechanics;
+import net.spell_power.api.SpellSchools;
 import net.veroxuniverse.epicknightsnmages.client.armor.DarkKnightArmorRenderer;
 
 import java.util.EnumMap;
@@ -46,14 +45,13 @@ public class DarkKnightArmor extends KNMArmor implements ConfigurableAttributes 
     @Override
     public void setAttributes(Multimap<EntityAttribute, EntityAttributeModifier> attributes) {
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-        // builder.putAll(super.getAttributeModifiers(this.slot));
         builder.putAll(attributes);
-        UUID uuid = (UUID)MODIFIERS.get(this.type);
-        builder.put(EntityAttributes_SpellPower.POWER.get(MagicSchool.SOUL),
+        UUID uuid = MODIFIERS.get(this.type);
+        builder.put(SpellSchools.SOUL.attribute,
                 new EntityAttributeModifier(uuid, "armorSoulModifier", 0.25, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        builder.put(EntityAttributes_SpellPower.POWER.get(MagicSchool.FIRE),
+        builder.put(SpellSchools.FIRE.attribute,
                 new EntityAttributeModifier(uuid, "armorFireModifier", 3.0, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(EntityAttributes_SpellPower.CRITICAL_CHANCE,
+        builder.put(SpellPowerMechanics.CRITICAL_CHANCE.attribute,
                 new EntityAttributeModifier(uuid, "armorCritChanceModifier", 0.05, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         this.attributes = builder.build();
     }

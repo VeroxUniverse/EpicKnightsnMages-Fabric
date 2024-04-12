@@ -12,34 +12,27 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 import net.spell_engine.api.item.ConfigurableAttributes;
 import net.spell_engine.api.item.weapon.SpellWeaponItem;
-import net.spell_power.api.MagicSchool;
-import net.spell_power.api.attributes.SpellAttributes;
+import net.spell_power.api.SpellSchools;
 
 import java.util.UUID;
 
 public class NobleSword extends SpellWeaponItem implements ConfigurableAttributes {
-    MagicSchool school = MagicSchool.PHYSICAL_MELEE;
 
     private Multimap<EntityAttribute, EntityAttributeModifier> attributes;
 
-    public NobleSword(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings, MagicSchool school) {
+    public NobleSword(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
-        this.school = school;
     }
 
-    public MagicSchool getSchool() {
-        return school;
-    }
 
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
-
         if (slot != EquipmentSlot.MAINHAND) return super.getAttributeModifiers(slot);
 
         Multimap<EntityAttribute, EntityAttributeModifier> modifiers = HashMultimap.create(super.getAttributeModifiers(slot));
 
         modifiers.put(
-                SpellAttributes.POWER.get(MagicSchool.ARCANE).attribute,
+                SpellSchools.ARCANE.attribute,
                 new EntityAttributeModifier(
                         UUID.fromString("018d5081-0d76-7f19-b00d-f26af8b46f5b"),
                         "swordArcaneModifier",
@@ -49,7 +42,7 @@ public class NobleSword extends SpellWeaponItem implements ConfigurableAttribute
         );
 
         modifiers.put(
-                SpellAttributes.POWER.get(MagicSchool.FROST).attribute,
+                SpellSchools.FROST.attribute,
                 new EntityAttributeModifier(
                         UUID.fromString("018d5081-69ad-7185-a7fb-7d9f0cd7231d"),
                         "swordFrostModifier",
