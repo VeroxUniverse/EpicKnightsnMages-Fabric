@@ -16,10 +16,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Util;
 import net.minecraft.world.World;
 import net.spell_engine.api.item.ConfigurableAttributes;
-import net.spell_power.api.MagicSchool;
-import net.spell_power.api.attributes.EntityAttributes_SpellPower;
+import net.spell_power.api.SpellPowerMechanics;
+import net.spell_power.api.SpellSchools;
 import net.veroxuniverse.epicknightsnmages.client.armor.BattleMageArmorRenderer;
-import net.veroxuniverse.epicknightsnmages.client.armor.DarkKnightArmorRenderer;
 
 import java.util.EnumMap;
 import java.util.UUID;
@@ -45,15 +44,19 @@ public class BattleMageArmor extends KNMArmor implements ConfigurableAttributes 
     @Override
     public void setAttributes(Multimap<EntityAttribute, EntityAttributeModifier> attributes) {
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-        // builder.putAll(super.getAttributeModifiers(this.slot));
         builder.putAll(attributes);
-        UUID uuid = (UUID)MODIFIERS.get(this.type);
-        builder.put(EntityAttributes_SpellPower.POWER.get(MagicSchool.FIRE),
+
+        UUID uuid = MODIFIERS.get(this.type);
+
+        builder.put(SpellSchools.FIRE.attribute,
                 new EntityAttributeModifier(uuid, "armorFireModifier", 0.25, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        builder.put(EntityAttributes_SpellPower.POWER.get(MagicSchool.ARCANE),
+
+        builder.put(SpellSchools.ARCANE.attribute,
                 new EntityAttributeModifier(uuid, "armorArcaneModifier", 3.0, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(EntityAttributes_SpellPower.CRITICAL_DAMAGE,
+
+        builder.put(SpellPowerMechanics.CRITICAL_DAMAGE.attribute,
                 new EntityAttributeModifier(uuid, "armorCritDamageModifier", 0.1, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
+
         this.attributes = builder.build();
     }
 

@@ -7,7 +7,6 @@ import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.spell_power.api.MagicSchool;
 import net.veroxuniverse.epicknightsnmages.EpicKnightsnMagesFabric;
 import net.veroxuniverse.epicknightsnmages.item.armor.BattleMageArmor;
 import net.veroxuniverse.epicknightsnmages.item.armor.BlueKnightArmor;
@@ -37,13 +36,13 @@ public class ItemsRegistry {
     // WEAPOMS
 
     public static final Item ELITE_WAND = registerItem("elite_wand",
-            new MagicStaff(ItemMaterialsRegistry.MAGICAL, 0, -3.0f, new FabricItemSettings().fireproof(), MagicSchool.ARCANE));
+            new MagicStaff(ItemMaterialsRegistry.MAGICAL, 0, -3.0f, new FabricItemSettings().fireproof()));
     public static final Item ELITE_SPELL_BOOK = registerItem("elite_spell_book",
-            new SpellBook(ItemMaterialsRegistry.SPELLCASTING, 0, -3.0f, new FabricItemSettings().fireproof(), MagicSchool.FIRE));
+            new SpellBook(ItemMaterialsRegistry.SPELLCASTING, 0, -3.0f, new FabricItemSettings().fireproof()));
     public static final Item NOBLE_SWORD = registerItem("noble_sword",
-            new NobleSword(ItemMaterialsRegistry.NOBLE, 6, -2.4f, new FabricItemSettings().fireproof(), MagicSchool.FROST));
+            new NobleSword(ItemMaterialsRegistry.NOBLE, 6, -2.4f, new FabricItemSettings().fireproof()));
     public static final Item DARK_SWORD = registerItem("dark_sword",
-            new Flambard(ItemMaterialsRegistry.DARK, 11, -2.8f, new FabricItemSettings().fireproof(), MagicSchool.FIRE));
+            new Flambard(ItemMaterialsRegistry.DARK, 11, -2.8f, new FabricItemSettings().fireproof()));
 
     // ARMORS
 

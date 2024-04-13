@@ -16,8 +16,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Util;
 import net.minecraft.world.World;
 import net.spell_engine.api.item.ConfigurableAttributes;
-import net.spell_power.api.MagicSchool;
-import net.spell_power.api.attributes.EntityAttributes_SpellPower;
+import net.spell_power.api.SpellPowerMechanics;
+import net.spell_power.api.SpellSchools;
 import net.veroxuniverse.epicknightsnmages.client.armor.BlueKnightArmorRenderer;
 import net.veroxuniverse.epicknightsnmages.client.armor.DarkKnightArmorRenderer;
 
@@ -45,14 +45,13 @@ public class BlueKnightArmor extends KNMArmor implements ConfigurableAttributes 
     @Override
     public void setAttributes(Multimap<EntityAttribute, EntityAttributeModifier> attributes) {
         ImmutableMultimap.Builder<EntityAttribute, EntityAttributeModifier> builder = ImmutableMultimap.builder();
-        // builder.putAll(super.getAttributeModifiers(this.slot));
         builder.putAll(attributes);
-        UUID uuid = (UUID)MODIFIERS.get(this.type);
-        builder.put(EntityAttributes_SpellPower.POWER.get(MagicSchool.ARCANE),
+        UUID uuid = MODIFIERS.get(this.type);
+        builder.put(SpellSchools.ARCANE.attribute,
                 new EntityAttributeModifier(uuid, "armorArcaneModifier", 0.25, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
-        builder.put(EntityAttributes_SpellPower.POWER.get(MagicSchool.FROST),
+        builder.put(SpellSchools.FROST.attribute,
                 new EntityAttributeModifier(uuid, "armorFrostModifier", 2.0, EntityAttributeModifier.Operation.ADDITION));
-        builder.put(EntityAttributes_SpellPower.CRITICAL_CHANCE,
+        builder.put(SpellPowerMechanics.CRITICAL_CHANCE.attribute,
                 new EntityAttributeModifier(uuid, "armorCritChanceModifier", 0.03, EntityAttributeModifier.Operation.MULTIPLY_TOTAL));
         this.attributes = builder.build();
     }

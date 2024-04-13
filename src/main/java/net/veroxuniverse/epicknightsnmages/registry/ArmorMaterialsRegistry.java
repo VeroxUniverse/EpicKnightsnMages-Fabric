@@ -14,7 +14,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Lazy;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.Util;
-import net.spell_power.api.MagicSchool;
 import net.veroxuniverse.epicknightsnmages.EpicKnightsnMagesFabric;
 
 import java.util.EnumMap;

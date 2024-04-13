@@ -23,39 +23,31 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 import net.spell_engine.api.item.ConfigurableAttributes;
 import net.spell_engine.api.item.weapon.SpellWeaponItem;
-import net.spell_power.api.MagicSchool;
-import net.spell_power.api.attributes.SpellAttributes;
+import net.spell_power.api.SpellSchools;
 import net.veroxuniverse.epicknightsnmages.client.weapon.MagicStaffRenderer;
-import net.veroxuniverse.epicknightsnmages.client.weapon.SpellBookRenderer;
 
 import java.util.UUID;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class MagicStaff extends SpellWeaponItem implements ConfigurableAttributes, GeoItem {
-    MagicSchool school = MagicSchool.PHYSICAL_MELEE;
     public AnimatableInstanceCache factory = AzureLibUtil.createInstanceCache(this);
 
     private Multimap<EntityAttribute, EntityAttributeModifier> attributes;
 
-    public MagicStaff(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings, MagicSchool school) {
+    public MagicStaff(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
-        this.school = school;
     }
 
-    public MagicSchool getSchool() {
-        return school;
-    }
 
     @Override
     public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(EquipmentSlot slot) {
-
         if (slot != EquipmentSlot.MAINHAND) return super.getAttributeModifiers(slot);
 
         Multimap<EntityAttribute, EntityAttributeModifier> modifiers = HashMultimap.create(super.getAttributeModifiers(slot));
 
         modifiers.put(
-                SpellAttributes.POWER.get(MagicSchool.ARCANE).attribute,
+                SpellSchools.ARCANE.attribute,
                 new EntityAttributeModifier(
                         UUID.fromString("018d5084-3aaf-717f-9361-af5dd384fbab"),
                         "swordArcaneModifier",
@@ -65,7 +57,7 @@ public class MagicStaff extends SpellWeaponItem implements ConfigurableAttribute
         );
 
         modifiers.put(
-                SpellAttributes.POWER.get(MagicSchool.FIRE).attribute,
+                SpellSchools.FIRE.attribute,
                 new EntityAttributeModifier(
                         UUID.fromString("018d5084-5574-7010-be62-5b823d001ba6"),
                         "swordFireModifier",
@@ -75,7 +67,7 @@ public class MagicStaff extends SpellWeaponItem implements ConfigurableAttribute
         );
 
         modifiers.put(
-                SpellAttributes.POWER.get(MagicSchool.FROST).attribute,
+                SpellSchools.FROST.attribute,
                 new EntityAttributeModifier(
                         UUID.fromString("018d5084-6f66-7d58-b8b7-8e1932d691ef"),
                         "swordFrostModifier",
